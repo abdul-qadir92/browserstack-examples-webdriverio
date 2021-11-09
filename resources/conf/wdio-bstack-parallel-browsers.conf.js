@@ -45,19 +45,19 @@ var overrides = {
     real_mobile: "true",
     browserName: 'iPhone',
   }],
-  afterTest: function (test, context, { error, result, duration, passed, retries }) {
+  afterTest: async function (test, context, { error, result, duration, passed, retries }) {
     if((require('minimist')(process.argv.slice(2)))['bstack-session-name']) {
-      browser.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"" +
-        (require('minimist')(process.argv.slice(2)))['bstack-session-name'] +  "\" }}");
+      await browser.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"" +
+        (require('minimist')(process.argv.slice(2)))['bstack-session-name'] +  "\" }}", []);
     } else {
-      browser.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"" + test.title +  "\" }}");
+      await browser.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"" + test.title +  "\" }}", []);
     }
 
     if(passed) {
-      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
+      await browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}', []);
     } else {
-      browser.takeScreenshot();
-      browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
+      await browser.takeScreenshot();
+      await browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}', []);
     }
   }
 };

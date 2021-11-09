@@ -22,7 +22,7 @@ describe('StackDemo user suite', () => {
     });
     for (let value of all_images.values()){
       const image_name = await value;
-      expectChai(!image_name.isEqual('')).to.equal(true, "All images are not loaded");
+      expectChai(await !image_name.isEqual('')).to.equal(true, "All images are not loaded");
     }
   })
 })

@@ -26,14 +26,14 @@ class ConfirmationPage extends Page {
     await (await this.confirmationMessage).waitForDisplayed({ timeout: 5000 });
   }
 
-  clickDownloadPdf() {
-    this.downloadPDFLink.click();
+  async clickDownloadPdf() {
+    await (await this.downloadPDFLink).click();
   }
 
-  downloadedFileExists(browser, fileName) {
-    browser.pause(2000);
-    const fileExists = browser.executeScript('browserstack_executor: {"action": "fileExists", "arguments": {"fileName": "'+ fileName + '"}}');
-    expect(fileExists).toEqual(true);
+  async downloadedFileExists(browser, fileName) {
+    await browser.pause(2000);
+    const fileExists = await browser.executeScript('browserstack_executor: {"action": "fileExists", "arguments": {"fileName": "'+ fileName + '"}}',[]);
+    expect(await fileExists).toEqual(true);
   }
 
 }
