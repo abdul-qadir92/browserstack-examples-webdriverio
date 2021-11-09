@@ -33,8 +33,12 @@ describe('Order a product', () => {
 
     await ConfirmationPage.waitForConfirmationToBeDisplayed();
     expect(await ConfirmationPage.confirmationMessage).toHaveText('Your Order has been successfully placed.');
+    if(await browser.config.onBrowserstack){
+      await ConfirmationPage.clickDownloadPdf();
+      await ConfirmationPage.downloadedFileExists(browser, 'confirmation.pdf');
+    }
     await ConfirmationPage.clickContinueShoppingButton();
-    
+   
     await HomePage.navigateToOrders();
     await OrdersPage.waitforOrdersToDisplay();
     expect(await OrdersPage.allOrders).toHaveLength(1);
