@@ -17,7 +17,7 @@ The WebDriverIO tests are run on different platforms like on-prem, docker and Br
 - Clone the repository
 
 - Ensure you have the following dependencies installed on the machine
-  - NodeJS >= 14.16.0 (includes npm 6.14.11)
+  - NodeJS >= 16.11.1 (includes npm 8.0.0)
 
 - Run below command to configure dependencies
 
@@ -39,7 +39,7 @@ The WebDriverIO tests are run on different platforms like on-prem, docker and Br
   | Product  | Apply Lowest to Highest Order By   | This test verifies that the product prices are in ascending order when the product sort "Lowest to Highest" is applied. |
   | User     | Login as User with no image loaded | This test verifies that the product images load for user: "image_not_loading_user" on the e-commerce application. Since the images do not load, the test case assertion fails.|
   | User     | Login as User with existing Orders |  This test verifies that existing orders are shown for user: "existing_orders_user"  |
-  
+  | Accessibility   | Run accessibility tests on the landing page   | This test runs the accessibility tests on the landing page of the demo application.   |
   ---
 
 
