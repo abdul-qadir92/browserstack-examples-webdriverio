@@ -1,14 +1,14 @@
 const items = require('../../../../resources/data/login_cases.json')
 
-describe('Password input validation', function () {
-  items.forEach((item) => {
+describe('Password input validation', async function () {
+  items.forEach(async (item) => {
 
-    beforeEach('Open StackDemo', () => {
-      browser.url('');
+    beforeEach('Open StackDemo', async () => {
+      await browser.url('');
     })
 
-    afterEach('clear sessionstorage', () => {
-      browser.execute(() => sessionStorage.clear())
+    afterEach('clear sessionstorage', async () => {
+      await browser.execute(async () => sessionStorage.clear())
     })
 
     it(`Login should not be successful for account with username ''`, async () => {
@@ -17,7 +17,7 @@ describe('Password input validation', function () {
       await (await $('#password input')).setValue(item.password + '\n');
       await (await $('#login-btn')).click();
 
-      expect(await $('.api-error')).toHaveText(item.expected_message);
+      await expect(await $('.api-error')).toHaveText(item.expected_message);
     });
   })
 });

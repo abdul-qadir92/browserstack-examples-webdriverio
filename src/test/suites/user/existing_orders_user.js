@@ -1,14 +1,14 @@
 const _ = require('lodash');
 const expectChai = require('chai').expect;
 
-describe('StackDemo user suite', () => {
+describe('StackDemo user suite', async () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(() => sessionStorage.clear())
   })
 
   it('Login with user having existing orders', async () => {
@@ -20,6 +20,6 @@ describe('StackDemo user suite', () => {
 
     await (await $('#orders')).click();
     await (await $(".order")).waitForDisplayed({ timeout: 5000 });
-    expect(await (await $$('.order'))).toHaveLength(5);
+    await expect(await (await $$('.order'))).toHaveLength(5);
   })
 })

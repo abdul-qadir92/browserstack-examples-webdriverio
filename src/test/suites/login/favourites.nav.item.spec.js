@@ -1,11 +1,11 @@
-describe('StackDemo login', () => {
+describe('StackDemo login', async () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(async () => sessionStorage.clear())
   })
 
   it('Navigated to login on clicking favourites Nav Item', async () => {

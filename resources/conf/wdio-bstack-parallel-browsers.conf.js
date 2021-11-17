@@ -34,6 +34,7 @@ var overrides = {
     os_version: "10.0",
     real_mobile: "true",
     browserName: 'Android',
+    exclude: ['./src/test/suites/accessibility/*.js'],
   },{
     os: "Windows",
     os_version: "10",
@@ -44,6 +45,7 @@ var overrides = {
     os_version: "14",
     real_mobile: "true",
     browserName: 'iPhone',
+    exclude: ['./src/test/suites/accessibility/*.js'],
   }],
   afterTest: async function (test, context, { error, result, duration, passed, retries }) {
     if((require('minimist')(process.argv.slice(2)))['bstack-session-name']) {

@@ -1,13 +1,13 @@
 const AxeBuilder = require('@axe-core/webdriverio').default;
 const expectChai = require('chai').expect;
-describe('Accessibility test', () => {
+describe('Accessibility test', async () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(async () => sessionStorage.clear())
   })
 
   it('Performs accessibility tests', async() => {

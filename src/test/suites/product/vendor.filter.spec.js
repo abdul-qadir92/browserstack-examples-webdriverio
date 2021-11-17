@@ -1,13 +1,13 @@
 const expectChai = require('chai').expect;
 
-describe('StackDemo filters', () => {
+describe('StackDemo filters', async () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(() => sessionStorage.clear())
   })
 
   it('Apply vendor filter', async () => {

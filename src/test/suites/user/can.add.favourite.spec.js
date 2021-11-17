@@ -1,14 +1,14 @@
 const _ = require('lodash');
 const expectChai = require('chai').expect;
 
-describe('StackDemo user suite', () => {
+describe('StackDemo user suite', async () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(() => sessionStorage.clear())
   })
 
   it('Logged in user should be able to add favourite', async () => {
@@ -27,6 +27,6 @@ describe('StackDemo user suite', () => {
       return await pageUrl.indexOf('favourites') > -1
     }, 5000)
     await browser.pause(5000)
-    expect(await (await $$('p.shelf-item__title'))).toHaveTextContaining('iPhone 12');
+    await expect(await (await $$('p.shelf-item__title'))).toHaveTextContaining('iPhone 12');
   })
 })
