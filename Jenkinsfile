@@ -13,10 +13,10 @@ node {
 					addEditedValue: false,
 					choiceListText: '''bstack-single
 bstack-parallel
-bstack-parallel-multiple
+bstack-parallel-browsers
 bstack-local
 bstack-local-parallel
-bstack-local-parallel-multiple''',
+bstack-local-parallel-browsers''',
 					defaultChoice: 'bstack-parallel'
 				],
 				description: 'Select the test you would like to run',
