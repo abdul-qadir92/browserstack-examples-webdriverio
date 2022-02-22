@@ -3,21 +3,28 @@ import * as accounts from '../../../../resources/data/user.json';
 
 describe('StackDemo login', () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(() => sessionStorage.clear())
   })
 
-  it(`Login should be successful for account with username 'image_not_loading_user'`, function () {
-    $('#signin').click();
-    $('#username input').setValue(accounts[2].username + '\n');
-    $('#password input').setValue(accounts[2].password + '\n');
-    $('#login-btn').click();
+  it(`Login should be successful for account with username 'image_not_loading_user'`, async function () {
+    const signInButton = await $('#signin')
+    await signInButton.click();
+    const userNameField = await $('#username input')
+    await userNameField.setValue(accounts[2].username + '\n');
+    const passwordField = await $('#password input')
+    await passwordField.setValue(accounts[2].password + '\n');
+    const logInButton = await $('#login-btn')
+    await logInButton.click();
 
-    expect($('.username').getText()).to.equal(accounts[2].username);
-    $('#logout').click();
+    const userName = await $('.username')
+
+    await expect(await userName.getText()).to.equal(accounts[2].username);
+    const logOutButton = await $('#logout')
+    await logOutButton.click();
   });
 })

@@ -1,5 +1,5 @@
 {
-  "name": "browserstack-examples-webdriverio",
+  "name": "browserstack-examples-webdriverio-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -35,7 +35,6 @@
     "@wdio/local-runner": "^7.6.1",
     "@wdio/mocha-framework": "^7.6.0",
     "@wdio/spec-reporter": "^7.6.1",
-    "@wdio/sync": "^7.6.1",
     "allure-commandline": "^2.13.8",
     "browserstack-local": "1.4.8",
     "chai": "4.3.3",
@@ -50,6 +49,7 @@
     "webdriverio": "7.2.2"
   },
   "dependencies": {
+    "@axe-core/webdriverio": "^4.3.2",
     "mochawesome-report-generator": "3.1.5"
   }
 }

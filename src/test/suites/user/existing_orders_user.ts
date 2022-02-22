@@ -3,23 +3,31 @@ import * as accounts from '../../../../resources/data/user.json';
 
 describe('StackDemo user suite', () => {
 
-  beforeEach('Open StackDemo', () => {
-    browser.url('');
+  beforeEach('Open StackDemo', async () => {
+    await browser.url('');
   })
 
-  afterEach('clear sessionstorage', () => {
-    browser.execute(() => sessionStorage.clear())
+  afterEach('clear sessionstorage', async () => {
+    await browser.execute(() => sessionStorage.clear())
   })
 
-  it('Login with user having existing orders', () => {
-    $('#signin').click();
-    $('#username input').setValue(accounts[3].username + '\n');
-    $('#password input').setValue(accounts[3].password + '\n');
-    $('#login-btn').click();
-    expect($('.username').getText()).to.equal('existing_orders_user');
+  it('Login with user having existing orders', async () => {
+    const signIn = await $('#signin')
+    await signIn.click();
+    const userNameField = await $('#username input')
+    await userNameField.setValue(accounts[3].username + '\n');
+    const passwordField = await $('#password input')
+    await passwordField.setValue(accounts[3].password + '\n');
+    const loginButton = await $('#login-btn')
+    await loginButton.click();
 
-    $('#orders').click();
-    $(".order").waitForDisplayed({ timeout: 5000 });
-    expect($$('.order')).to.have.length(5);
+    const userName = await $('.username')
+    expect(await userName.getText()).to.equal('existing_orders_user');
+
+    const ordersButton = await $('#orders')
+    await ordersButton.click();
+    const orderListElement = await $(".order")
+    await orderListElement.waitForDisplayed({ timeout: 5000 });
+    expect(await $$('.order')).to.have.length(5);
   })
 })
