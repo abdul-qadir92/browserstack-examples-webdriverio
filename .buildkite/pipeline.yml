@@ -1,6 +1,6 @@
 steps:
   - label: "node setup"
-    command: "nvm install 14.16.0 && npm install && npm i fibers"
+    command: "node -v && npm install && npm i fibers"
     key: build
 
   - label: ":test_tube: Test"
