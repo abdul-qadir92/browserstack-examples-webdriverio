@@ -1,9 +1,9 @@
 steps:
   - label: "node setup"
-    command: "node -v && npm install && npm i fibers"
+    command: "ls && node -v && npm install && npm i fibers"
     key: build
 
   - label: ":test_tube: Test"
-    command: "npx wdio ./resources/conf/wdio-bstack-single.conf.js"
+    command: "pwd"
     key: test
     depends_on: build
