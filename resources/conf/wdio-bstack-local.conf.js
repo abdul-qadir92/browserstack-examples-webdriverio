@@ -19,7 +19,7 @@ var overrides = {
     'browserstack.maskCommands':'setValues, getValues, setCookies, getCookies',
     'browserstack.debug': true,
     'browserstack.video': true,
-    'browserstack.local': true,
+    //'browserstack.local': true,
     'browserstack.networkLogs': true,
     "browserstack.localIdentifier": timeStamp,
     os: "OS X",

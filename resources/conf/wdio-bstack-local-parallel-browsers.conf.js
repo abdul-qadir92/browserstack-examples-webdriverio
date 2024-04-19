@@ -20,7 +20,7 @@ var overrides = {
   baseUrl: 'http://localhost:3000/',
   waitforTimeout: 50000,
   commonCapabilities: {
-    maxInstances: 1,
+    maxInstances: 3,
     'browserstack.maskCommands':'setValues, getValues, setCookies, getCookies',
     'browserstack.debug': true,
     'browserstack.video': true,

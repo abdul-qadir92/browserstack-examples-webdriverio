@@ -29,7 +29,7 @@ var overrides = {
     "browserstack.localIdentifier": timeStamp,
   },
   capabilities: [{
-    maxInstances: 5,
+    maxInstances: 3,
     'browserstack.maskCommands':'setValues, getValues, setCookies, getCookies',
     'browserstack.debug': true,
     'browserstack.video': true,

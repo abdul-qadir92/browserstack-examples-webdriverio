@@ -24,7 +24,8 @@ var overrides = {
     name: (require('minimist')(process.argv.slice(2)))['bstack-session-name'] || 'default_name',
     build: process.env.BROWSERSTACK_BUILD_NAME || 'browserstack-examples-webdriverio' + " - " + new Date().getTime()
   },
-  capabilities: [{
+  capabilities: [
+  {
     os: "OS X",
     os_version: "Catalina",
     browserName: 'Chrome',
