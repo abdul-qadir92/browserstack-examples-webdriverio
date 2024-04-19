@@ -1,9 +1,9 @@
 steps:
   - label: "node setup"
-    command: "ls && node -v && npm install && npm i fibers"
+    command: "node -v && npm install && npm i fibers && ls"
     key: build
 
   - label: ":test_tube: Test"
-    command: "pwd"
+    command: "npm run bstack-single"
     key: test
     depends_on: build
