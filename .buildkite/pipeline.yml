@@ -4,6 +4,6 @@ steps:
     key: build
 
   - label: ":test_tube: Test"
-    command: "npm run bstack-single"
+    command: "npx wdio ./resources/conf/wdio-bstack-single.conf.js"
     key: test
     depends_on: build
