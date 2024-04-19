@@ -9,7 +9,7 @@
     "bstack-local": "npx wdio resources/conf/wdio-bstack-local.conf.js",
     "bstack-parallel-browsers": "npx wdio resources/conf/wdio-bstack-parallel-browsers.conf.js",
     "bstack-parallel": "npx wdio resources/conf/wdio-bstack-parallel.conf.js",
-    "bstack-single": "npx wdio resources/conf/wdio-bstack-single.conf.js",
+    "bstack-single": "wdio resources/conf/wdio-bstack-single.conf.js",
     "docker": "npx wdio resources/conf/wdio-docker-service.conf.js",
     "docker-parallel": "npx wdio resources/conf/wdio-docker-service-parallel.conf.js",
     "on-prem-suite": "npx wdio resources/conf/wdio-on-prem-suite.conf.js",
